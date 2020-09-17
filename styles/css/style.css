@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+.top {
+  height: 100vh; }
+
+@media only screen and (max-width: 480px) {
+  .parallax {
+    color: #f00;
+    font-size: 20px; } }
+@media all and (min-width: 480px) and (max-width: 767px) {
+  .parallax {
+    color: steelblue;
+    font-size: 50px; } }
+@media all and (min-width: 767px) and (max-width: 990px) {
+  .parallax {
+    color: gold;
+    font-size: 50px; } }
+@media all and (min-width: 990px) {
+  .parallax {
+    color: #820;
+    font-size: 50px; } }
+
+/*# sourceMappingURL=style.css.map */

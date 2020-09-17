@@ -1,0 +1,38 @@
+@import "var";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.top {
+  height: 100vh;
+}
+
+@include rwd(mobile) {
+  .parallax {
+    color: $red;
+    font-size: 20px;
+  }
+}
+
+@include rwd(medium) {
+  .parallax {
+    color: steelblue;
+    font-size: 50px;
+  }
+}
+
+@include rwd(bigMedium) {
+  .parallax {
+    color: gold;
+    font-size: 50px;
+  }
+}
+
+@include rwd(desktop) {
+  .parallax {
+    color: #820;
+    font-size: 50px;
+  }
+}

@@ -3,10 +3,97 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: "GT Walsheim Pro", sans-serif;
+  box-sizing: border-box;
 }
 
-.top {
-  height: 100vh;
+body {
+  background-color: #f5f4f1;
+  color: #1b1d2a;
+}
+
+img {
+  width: 100%;
+  vertical-align: bottom;
+}
+
+.navigator {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 64px;
+  padding-right: 24px;
+  padding-left: 24px;
+  background-color: rgba(245, 244, 241, 0.25);
+  display: flex;
+  &_container {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 1200px;
+  }
+  .nav {
+    &_right {
+      display: flex;
+      &_imglist {
+        display: flex;
+      }
+    }
+
+    &_circle {
+      position: relative;
+      width: 28px;
+      height: 28px;
+      margin-right: -4px;
+      &_else {
+        border-radius: 50%;
+        background-color: #995cbf;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #ffffff;
+        font-weight: 500;
+        font-size: 14px;
+      }
+      &:hover > .nav_detail {
+        display: block;
+      }
+    }
+
+    &_detail {
+      display: none;
+      position: absolute;
+      left: -74px;
+      top: 32px;
+      width: 176px;
+      height: 196px;
+      border-radius: 12px;
+      background-color: rgba(30, 31, 37, 0.9);
+      transition: all 0.3s ease-in-out;
+      backdrop-filter: blur(12px) saturate(100%);
+      &_container {
+        color: #ffffff;
+        text-align: center;
+      }
+    }
+
+    &_hiringbtn {
+      display: inline-block;
+      margin-left: 16px;
+      padding: 4px 12px;
+      border-radius: 8px;
+      background-color: #fff;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.08),
+        0 1px 1px 0 rgba(0, 0, 0, 0.15);
+    }
+  }
+}
+
+.hero{
+  height: 110vh;
+  margin-top: 64px;
 }
 
 @include rwd(mobile) {
@@ -31,8 +118,4 @@
 }
 
 @include rwd(desktop) {
-  .parallax {
-    color: #820;
-    font-size: 50px;
-  }
 }

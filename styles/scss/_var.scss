@@ -4,14 +4,19 @@ $red: #f00;
 $mobile: 480px;
 $medium: 767px;
 $desktop: 990px;
+$bigDestop: 1280px;
 
 @mixin rwd($breakpoint) {
   @if $breakpoint == "mobile" {
     @media only screen and (max-width: $mobile) {
       @content;
     }
-  } @else if $breakpoint == "medium" {
+  } @else if $breakpoint == "bigMobile" {
     @media all and (min-width: $mobile) and (max-width: $medium) {
+      @content;
+    }
+  } @else if $breakpoint == "medium" {
+    @media all and (max-width: $medium) {
       @content;
     }
   } @else if $breakpoint == "bigMedium" {
@@ -19,8 +24,41 @@ $desktop: 990px;
       @content;
     }
   } @else if $breakpoint == "desktop" {
-    @media all and (min-width: $desktop) {
+    @media all and (min-width: $desktop) and (max-width: $bigDestop) {
       @content;
+    }
+  } @else if $breakpoint == "bigDesktop" {
+    @media all and (min-width: $bigDestop) {
+      @content;
+    }
+  }
+}
+
+//animation
+@mixin anim(
+  $name,
+  $duration: 0s,
+  $delay: 0s,
+  $iterationCount: 1,
+  $fillMode: none
+) {
+  animation: $name $duration $delay $iterationCount $fillMode;
+}
+
+@mixin text-list($num) {
+  @for $i from 1 through $num {
+    &:nth-child(#{$i}) {
+      @include anim(bottomToTop, #{0.5 * $i}s);
+      @keyframes bottomToTop {
+        0% {
+          opacity: 0;
+          transform: translate(0, 50%);
+        }
+        100% {
+          opacity: 1;
+          transform: translate(0, 0%);
+        }
+      }
     }
   }
 }
